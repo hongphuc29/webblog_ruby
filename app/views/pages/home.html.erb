@@ -1,0 +1,13 @@
+<div class="container">
+    <h1>TRANG CHỦ</h1>
+    <p>Bạn có thể đăng nhập để thực hiện các chức năng khác</p>
+    <p>Bạn chưa có tài khoản? nhấn vào nút đăng ký ngay</p>
+    <% if  current_user %>
+    <p>Logged in as <%= current_user.email%></p>
+    <%= link_to "Logout", destroy_user_session_path, class:"btn btn-secondary", method: :delete, data: {
+        turbo_method: :delete} %>
+        <% else %>
+        <%= link_to"Login", new_user_session_path, class:"btn btn-primary"  %>
+        <%= link_to"Sign up", new_user_registration_path, class:"btn btn-primary" %>
+        <% end %>
+    </div>
