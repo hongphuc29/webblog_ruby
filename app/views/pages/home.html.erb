@@ -1,13 +1,17 @@
-<div class="container">
-    <h1>TRANG CHỦ</h1>
-    <p>Bạn có thể đăng nhập để thực hiện các chức năng khác</p>
-    <p>Bạn chưa có tài khoản? nhấn vào nút đăng ký ngay</p>
-    <% if  current_user %>
-    <p>Logged in as <%= current_user.email%></p>
-    <%= link_to "Logout", destroy_user_session_path, class:"btn btn-secondary", method: :delete, data: {
-        turbo_method: :delete} %>
-        <% else %>
-        <%= link_to"Login", new_user_session_path, class:"btn btn-primary"  %>
-        <%= link_to"Sign up", new_user_registration_path, class:"btn btn-primary" %>
-        <% end %>
-    </div>
+<div class="container1">
+    <h1 class="text-center">TRANG CHỦ</h1>
+    <p class="text-center">Bạn có thể đăng nhập để thực hiện các chức năng khác</p>
+    <p class="text-center">Bạn chưa có tài khoản? Nhấn vào nút đăng ký ngay</p>
+    
+    <% if current_user %>
+      <div class="logged-in">
+        <p class="text-center">Logged in as <%= current_user.email %></p>
+        <%= link_to "Logout", destroy_user_session_path, class: "btn btn-secondary", method: :delete, data: { turbo_method: :delete } %>
+      </div>
+    <% else %>
+      <div class="login-signup">
+        <%= link_to "Login", new_user_session_path, class: "btn btn-primary" %>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
